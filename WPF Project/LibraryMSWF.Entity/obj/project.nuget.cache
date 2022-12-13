@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LSBOqelMaxVX2sjb5gW6OM8xDkvzpouvgd/u8oIOeRpdY74k8/uSdeSXII6BcAv36985I0SmvMu0wxSsnGqmag==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Downloads\\gitProject_2\\gitProject_2\\Library-Management-System-WPF\\Library-Management-System-WPF\\WPF Project\\LibraryMSWF.Entity\\LibraryMSWF.Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
