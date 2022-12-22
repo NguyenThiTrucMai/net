@@ -5,3 +5,4 @@ WPF Project/LibraryManagementSystem/obj/Debug/*
 WPF Project/LibraryMSWF.Entity/obj/Debug/*
 *.dll
 *.pdb
+*.g.cs
