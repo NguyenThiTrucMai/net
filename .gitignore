@@ -1,0 +1,7 @@
+WPF Project/LibraryMSWF.BL/obj/Debug/*
+WPF Project/LibraryManagementSystem/.vs/*
+WPF Project/LibraryManagementSystem/bin/Debug/*
+WPF Project/LibraryManagementSystem/obj/Debug/*
+WPF Project/LibraryMSWF.Entity/obj/Debug/*
+*.dll
+*.pdb

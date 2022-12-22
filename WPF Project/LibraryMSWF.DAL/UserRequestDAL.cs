@@ -12,7 +12,7 @@ namespace LibraryMSWF.DAL
     public class UserRequestDAL
     {
         //ADD THE BOOK REQUEST INTO REQUEST TABLE =>DAL
-        String strCon = @"Data Source=LAPTOP-AC0C9BOB\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
+        String strCon = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
         SqlConnection sqlCon = null;
         
         //RETURN THE PERTICULAR USER REQUESTED BOOKS FROM REQUEST TABLE  =>DAL

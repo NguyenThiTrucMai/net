@@ -11,7 +11,7 @@ namespace LibraryMSWF.DAL
     public class UserDAL
     {
         //RETURN COMPLETE USERS FROM USER TABLE =>DAL
-        String strCon = @"Data Source=LAPTOP-AC0C9BOB\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
+        String strCon = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
         SqlConnection sqlCon = null;
         public DataSet GetAllUsersDAL()
         {

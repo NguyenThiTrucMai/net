@@ -58,9 +58,11 @@ namespace LibraryMSWF.BL
         //ADD BOOK INTO BOOK TABLE => BL
         public string AddBookBL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
         {
+            // mainguyen kiểm tra dữ liệu đúng định dạng không
             string isBookValid = BookValidate(bookName,bookAuthor,bookISBN,bookPrice,bookCopies);
             if (isBookValid=="true")
             {
+                // mainguyen gọi qua dao - database xử lí sql
                 BookDAL bookDAL = new BookDAL();
                 bool isDone = bookDAL.AddBookDAL(bookName, bookAuthor, bookISBN, bookPrice, bookCopies);
                 if (isDone!=true)

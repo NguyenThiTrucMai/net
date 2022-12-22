@@ -11,7 +11,7 @@ namespace LibraryMSWF.DAL
     public class UserReturnDAL
     {
         //ADD THE BOOK RETURN INTO RETURN TABLE =>DAL
-        String strCon = @"Data Source=LAPTOP-AC0C9BOB\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
+        String strCon = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
         SqlConnection sqlCon = null;
         public bool AddReturntDAL(int bookId, string bookName, int userId, string userName)
         {

@@ -27,12 +27,16 @@ namespace LibraryManagementSystem
         //ADD THE BOOKS DETAILS INTO BOOK TABEL =>PL
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            // mainguyen nút nhấn save
+
+            // mainguyen kiểm tra rổng
             if (tbBName.Text != string.Empty && tbBAuthor.Text != string.Empty && tbBISBN.Text != string.Empty && tbBPrice.Text != string.Empty &&
                 tbBCopy.Text != string.Empty
                 )
             {
                 try
                 {
+                    // mainguyen gọi qua controller
                     BookBL bookBL = new BookBL();
                     string isDone = bookBL.AddBookBL(tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text));
                     if (isDone == "true")

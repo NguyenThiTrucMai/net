@@ -11,35 +11,46 @@ namespace LibraryMSWF.DAL
     public class BookDAL
     {
         //RETURN THE COMPLETE BOOKS FROM BOOK TABLE =>DAL
-        String strCon = @"Data Source=LAPTOP-AC0C9BOB\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
+        String strCon = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
         SqlConnection sqlCon = null;
         public DataSet GetAllBooksDAL()
         {
-            sqlCon = new SqlConnection(strCon);
-            SqlDataAdapter da = new SqlDataAdapter("GetAllBooks", sqlCon);
-            DataSet ds = new DataSet("Books");
-            da.Fill(ds);
-            return ds;
+           sqlCon = new SqlConnection(strCon);
+           SqlDataAdapter da = new SqlDataAdapter("GetAllBooks", sqlCon);
+           DataSet ds = new DataSet("Books");
+           da.Fill(ds);
+           return ds;
         }
         //ADD BOOK INTO BOOK TABLE => DAL
         public bool AddBookDAL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
         {
-            sqlCon = new SqlConnection(strCon);
-            SqlCommand cmd = new SqlCommand("AddBook @name, @author,@isbn,@price,@copy", sqlCon);
-            cmd.Parameters.Add(new SqlParameter("@name", bookName));
-            cmd.Parameters.Add(new SqlParameter("@author", bookAuthor));
-            cmd.Parameters.Add(new SqlParameter("@isbn", bookISBN));
-            cmd.Parameters.Add(new SqlParameter("@price", bookPrice));
-            cmd.Parameters.Add(new SqlParameter("@copy", bookCopies));
-            sqlCon.Open();
-            int rowAffected = cmd.ExecuteNonQuery();
-            sqlCon.Close();
-            if (rowAffected > 0)
+            try
             {
-                return true;
+                // mainguyen gọi xuống database sử dụng câu lênh gọi đến store procedure 
+                sqlCon = new SqlConnection(strCon);
+                // mainguyen vị trí từng biến phải đúng với vị trí ở trên store procedure
+                SqlCommand cmd = new SqlCommand("AddBook @name, @author, @isbn, @price, @copy", sqlCon);
+                cmd.Parameters.Add(new SqlParameter("@name", bookName));
+                cmd.Parameters.Add(new SqlParameter("@author", bookAuthor));
+                cmd.Parameters.Add(new SqlParameter("@isbn", bookISBN));
+                cmd.Parameters.Add(new SqlParameter("@price", bookPrice));
+                cmd.Parameters.Add(new SqlParameter("@copy", bookCopies));
+
+                sqlCon.Open();
+                int rowAffected = cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                if (rowAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
 

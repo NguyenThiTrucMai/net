@@ -11,7 +11,7 @@ namespace LibraryMSWF.DAL
 {
     public class AdminDAL
     {
-        String strCon = @"Data Source=LAPTOP-AC0C9BOB\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
+        String strCon = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=LibraryMSWF;Integrated Security=True";
         SqlConnection sqlCon = null;
         //CHECK THE ADMIN LOGIN CREDENTIALS =>DAL
         public bool AdminLoginDAL(string adminEmail, string adminPass)

@@ -15,14 +15,14 @@
         <Rectangle HorizontalAlignment="Left" Height="334" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="286" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
         <Label Content="Book Name" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Width="120" Background="{x:Null}" Height="26"/>
         <Label Content="Book Author" HorizontalAlignment="Left" Margin="31,79,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,54,0,0" TextWrapping="Wrap" Text="" x:Name="tbBName" VerticalAlignment="Top" Width="262"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,110,0,0" TextWrapping="Wrap" Text="" x:Name="tbBAuthor" VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,54,0,0" TextWrapping="Wrap" Text="Tin học văn phòng" x:Name="tbBName" VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,110,0,0" TextWrapping="Wrap" Text="Trúc Mai" x:Name="tbBAuthor" VerticalAlignment="Top" Width="262"/>
         <Label Content="Book ISBN" HorizontalAlignment="Left" Margin="31,135,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,166,0,0" TextWrapping="Wrap" Text="" x:Name="tbBISBN"  VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,166,0,0" TextWrapping="Wrap" Text="THVP123" x:Name="tbBISBN"  VerticalAlignment="Top" Width="262"/>
         <Label Content="Book Price" HorizontalAlignment="Left" Margin="31,191,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,222,0,0" TextWrapping="Wrap" Text="" x:Name="tbBPrice" VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,222,0,0" TextWrapping="Wrap" Text="200" x:Name="tbBPrice" VerticalAlignment="Top" Width="262"/>
         <Label Content="Book Copies" HorizontalAlignment="Left" Margin="31,247,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="" x:Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="100" x:Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
         <Button Content="Submit" HorizontalAlignment="Left" Height="26" Margin="31,321,0,0" x:Name="BtnSubmit" Click="BtnSubmit_Click" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
