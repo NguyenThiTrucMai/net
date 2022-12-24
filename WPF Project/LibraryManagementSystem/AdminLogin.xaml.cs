@@ -37,11 +37,12 @@ namespace LibraryManagementSystem
                     if (isDone)
                     {
                         alertAdmin.Content = "";
-                        MessageBox.Show("Logged in successfully...");
+                        // MessageBox.Show("Logged in successfully...");//đăng nhập thành công mặc định vào trang dashboard không cần hiển thị câu thông báo
                         AdminHome adminHome = new AdminHome();
                         adminHome.Show();
                         tbAdminEmail.Clear();
                         tbAdminPass.Clear();
+                        this.Close();//tắt giao diện trang login admin khi đăng nhập thành công
                     }
                     else
                     {

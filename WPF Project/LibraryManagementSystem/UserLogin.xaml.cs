@@ -37,11 +37,12 @@ namespace LibraryManagementSystem
                     if (isDone != 0)
                     {
                         userId = isDone;
-                        MessageBox.Show("Logged in successfully...");
+                        // MessageBox.Show("Logged in successfully...");//đăng nhập thành công mặc định vào trang dashboard không cần hiển thị câu thông báo
                         UserHome userHome = new UserHome();
                         userHome.Show();
                         tbUserEmail.Clear();
                         tbUserPass.Clear();
+                        this.Close();//tắt giao diện trang login admin khi đăng nhập thành công
                     }
                     else
                     {

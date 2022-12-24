@@ -51,6 +51,8 @@ namespace LibraryManagementSystem
                         BookISBN = Convert.ToString(dr["BookISBN"]),
                         BookCopies = Convert.ToInt32(dr["BookCopies"]),
                         BookPrice = Convert.ToInt32(dr["BookPrice"]),
+                        //gán hình ảnh vào danh sách sách
+                        BookImage = Convert.ToString(dr["BookImage"]),
                     });
                 }
                 dgBooks.ItemsSource = lst;

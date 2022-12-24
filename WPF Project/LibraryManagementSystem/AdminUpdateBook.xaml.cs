@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryMSWF.BL;
+using Microsoft.Win32;
+using Path = System.IO.Path;
 
 namespace LibraryManagementSystem
 {
@@ -21,6 +24,8 @@ namespace LibraryManagementSystem
     public partial class AdminUpdateBook : Window
     {
         public int bookId;
+        //khởi tạo biến để lưu đường dẫn hình ảnh
+        public string bookImage = "";
         //INITIALIZE THE BOOKS UPDATE =>PL
         public AdminUpdateBook()
         {
@@ -31,6 +36,21 @@ namespace LibraryManagementSystem
             tbBISBN.Text = AdminBooks.updateBook.BookISBN;
             tbBPrice.Text = AdminBooks.updateBook.BookPrice.ToString();
             tbBCopy.Text = AdminBooks.updateBook.BookCopies.ToString();
+            //gán giá trị lấy từ database lên để sử dụng lúc cập nhật hình ảnh
+            this.bookImage = AdminBooks.updateBook.BookImage.ToString();
+            try
+            {
+                //màn hình chi tiết hiển thị cuốn sách
+                string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;////D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\bin\Debug\net6.0-windows\ thư mục mặc định
+                //var fileName = System.IO.Path.GetFileName("abc.png");//tên hình muốn lấy - danh sách hình trong cơ sở dữ liệu
+                //var link = defaultFolder + "\\~\\images\\" + fileName;//~\images thư mục chứa hình
+                var link = defaultFolder + this.bookImage;//lấy link hình trực tiếp từ database
+                imagePicture.Source = new BitmapImage(new Uri(link));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         //UPDATE BOOK DETAILS FROM BOOK TABLE
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
@@ -42,7 +62,7 @@ namespace LibraryManagementSystem
                 try
                 {
                     BookBL bookBL = new BookBL();
-                    string isDone = bookBL.UpdateBookBL(this.bookId, tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text));
+                    string isDone = bookBL.UpdateBookBL(this.bookId, tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text), this.bookImage);
                     if (isDone == "true")
                     {
                         MessageBox.Show("Book updated successfuly..");
@@ -65,6 +85,37 @@ namespace LibraryManagementSystem
             else
             {
                 MessageBox.Show("Enter the fields properly!!!, Every field is required..");
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Khi nhấn vào nút update image là chức năng cập nhật hình ảnh
+            try
+            {
+                //lưu thông tin hình sách
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "Image files|*.bmp;*.jpg;*.png;";
+                dialog.FilterIndex = 1;
+                if (dialog.ShowDialog() == true)
+                {
+                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));
+                    string path = Path.Combine(@"~\images");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var fileName = System.IO.Path.GetFileName(dialog.FileName);
+                    path = path + "\\" + fileName;
+                    File.Copy(dialog.FileName, path);
+
+                    //gán đường dẫn hình ảnh vào biến tạm > để khi nhấn save lấy để lưu vào database
+                    this.bookImage = path;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

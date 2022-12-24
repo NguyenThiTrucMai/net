@@ -22,19 +22,20 @@ namespace LibraryMSWF.DAL
            return ds;
         }
         //ADD BOOK INTO BOOK TABLE => DAL
-        public bool AddBookDAL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
+        public bool AddBookDAL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage)
         {
             try
             {
                 // mainguyen gọi xuống database sử dụng câu lênh gọi đến store procedure 
                 sqlCon = new SqlConnection(strCon);
                 // mainguyen vị trí từng biến phải đúng với vị trí ở trên store procedure
-                SqlCommand cmd = new SqlCommand("AddBook @name, @author, @isbn, @price, @copy", sqlCon);
+                SqlCommand cmd = new SqlCommand("AddBook @name, @author, @isbn, @price, @copy, @image", sqlCon);
                 cmd.Parameters.Add(new SqlParameter("@name", bookName));
                 cmd.Parameters.Add(new SqlParameter("@author", bookAuthor));
                 cmd.Parameters.Add(new SqlParameter("@isbn", bookISBN));
                 cmd.Parameters.Add(new SqlParameter("@price", bookPrice));
                 cmd.Parameters.Add(new SqlParameter("@copy", bookCopies));
+                cmd.Parameters.Add(new SqlParameter("@image", bookImage));
 
                 sqlCon.Open();
                 int rowAffected = cmd.ExecuteNonQuery();
@@ -56,16 +57,17 @@ namespace LibraryMSWF.DAL
 
         }
         //UPDATE THE BOOK FROM BOOK TABLE =>DAL
-        public bool UpdateBookDAL(int bookId, string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
+        public bool UpdateBookDAL(int bookId, string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage)
         {
             sqlCon = new SqlConnection(strCon);
-            SqlCommand cmd = new SqlCommand("UpdateBook @id,@name, @author,@isbn,@price,@copy", sqlCon);
+            SqlCommand cmd = new SqlCommand("UpdateBook @id,@name, @author,@isbn,@price,@copy, @image", sqlCon);
             cmd.Parameters.Add(new SqlParameter("@id", bookId));
             cmd.Parameters.Add(new SqlParameter("@name", bookName));
             cmd.Parameters.Add(new SqlParameter("@author", bookAuthor));
             cmd.Parameters.Add(new SqlParameter("@isbn", bookISBN));
             cmd.Parameters.Add(new SqlParameter("@price", bookPrice));
             cmd.Parameters.Add(new SqlParameter("@copy", bookCopies));
+            cmd.Parameters.Add(new SqlParameter("@image", bookImage));
             sqlCon.Open();
             int rowAffected = cmd.ExecuteNonQuery();
             sqlCon.Close();

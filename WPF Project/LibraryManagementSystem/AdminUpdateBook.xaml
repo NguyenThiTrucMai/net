@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         ResizeMode="NoResize"
-        Title="Update Book" Height="413.333" Width="338">
+        Title="Update Book" Height="400" Width="600">
     <Window.Background>
         <ImageBrush ImageSource="Images/yoab-anderson-IHC5LPAoGrs-unsplash (2).jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid Height="369" VerticalAlignment="Top">
-        <Rectangle HorizontalAlignment="Left" Height="334" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="286" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+        <Rectangle HorizontalAlignment="Left" Height="337" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="570" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
 
         <Label Content="Book Name" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Book Author" HorizontalAlignment="Left" Margin="31,79,0,0" VerticalAlignment="Top" Width="120"/>
@@ -24,6 +24,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="31,222,0,0" TextWrapping="Wrap" Text="" Name="tbBPrice" VerticalAlignment="Top" Width="262"/>
         <Label Content="Book Copies" HorizontalAlignment="Left" Margin="31,247,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="" Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
+        <Image x:Name="imagePicture" HorizontalAlignment="Left" Height="233" Margin="355,54,0,0" VerticalAlignment="Top" Width="176"/>
+        <Button Content="Upload Image" HorizontalAlignment="Left" Margin="418,319,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Button Content="Update" HorizontalAlignment="Left" Height="26" Margin="31,321,0,0" Name="BtnUpdate" Click="BtnUpdate_Click" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

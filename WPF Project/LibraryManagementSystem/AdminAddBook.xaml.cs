@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryMSWF.BL;
+using Microsoft.Win32;
+using Path = System.IO.Path;
 
 namespace LibraryManagementSystem
 {
@@ -20,6 +23,8 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class AdminAddBook : Window
     {
+        //khởi tạo biến để lưu đường dẫn hình ảnh
+        public string bookImage = "";
         public AdminAddBook()
         {
             InitializeComponent();
@@ -38,7 +43,7 @@ namespace LibraryManagementSystem
                 {
                     // mainguyen gọi qua controller
                     BookBL bookBL = new BookBL();
-                    string isDone = bookBL.AddBookBL(tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text));
+                    string isDone = bookBL.AddBookBL(tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text), this.bookImage);
                     if (isDone == "true")
                     {
                         MessageBox.Show("Book added successfuly..");
@@ -61,6 +66,36 @@ namespace LibraryManagementSystem
             else
             {
                 MessageBox.Show("Enter the fields properly!!!, Every field is required..");
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //lưu thông tin hình sách
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "Image files|*.bmp;*.jpg;*.png;";
+                dialog.FilterIndex = 1;
+                if (dialog.ShowDialog() == true)
+                {
+                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));
+                    string path = Path.Combine(@"~\images");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var fileName = System.IO.Path.GetFileName(dialog.FileName);
+                    path = path + "\\" + fileName;
+                    File.Copy(dialog.FileName, path);
+
+                    //gán đường dẫn hình ảnh vào biến tạm > để khi nhấn save lấy để lưu vào database
+                    this.bookImage = path;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
