@@ -25,7 +25,11 @@
         <Label Content="Book Copies" HorizontalAlignment="Left" Margin="31,247,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="" Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
         <Image x:Name="imagePicture" HorizontalAlignment="Left" Height="233" Margin="355,54,0,0" VerticalAlignment="Top" Width="176"/>
+        <ComboBox Name="cboStatus" SelectedValuePath="Name"  HorizontalAlignment="Left" Margin="31,323,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Còn sách" Name="Actice"></ComboBoxItem>
+            <ComboBoxItem  Content="Hết sách" Name="Deactice"></ComboBoxItem>
+        </ComboBox>
         <Button Content="Upload Image" HorizontalAlignment="Left" Margin="418,319,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Update" HorizontalAlignment="Left" Height="26" Margin="31,321,0,0" Name="BtnUpdate" Click="BtnUpdate_Click" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Update" HorizontalAlignment="Left" Height="26" Margin="218,321,0,0" Name="BtnUpdate" Click="BtnUpdate_Click" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

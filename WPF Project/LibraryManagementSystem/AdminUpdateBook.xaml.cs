@@ -38,6 +38,17 @@ namespace LibraryManagementSystem
             tbBISBN.Text = AdminBooks.updateBook.BookISBN;
             tbBPrice.Text = AdminBooks.updateBook.BookPrice.ToString();
             tbBCopy.Text = AdminBooks.updateBook.BookCopies.ToString();
+
+            //xử lý dữ liệu cho trường status
+            if (AdminBooks.updateBook.BookStatus == 1)
+            {
+                cboStatus.SelectedValue = "Actice";
+            }
+            else
+            {
+                cboStatus.SelectedValue = "Deactice";
+            }
+
             //gán giá trị lấy từ database lên để sử dụng lúc cập nhật hình ảnh
             this.bookImage = AdminBooks.updateBook.BookImage.ToString();
             try
@@ -62,8 +73,18 @@ namespace LibraryManagementSystem
             {
                 try
                 {
+                    //lấy giá trị từ giao diện lưu vào database
+                    ComboBoxItem typeItem = (ComboBoxItem)cboStatus.SelectedItem;
+                    string value = typeItem.Content.ToString();
+                    string status = typeItem.Name.ToString();
+                    int bookStatus = 2;
+                    if (status == "Actice")
+                    {
+                        bookStatus = 1;
+                    }
+
                     BookBL bookBL = new BookBL();
-                    string isDone = bookBL.UpdateBookBL(this.bookId, tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text), this.bookImage);
+                    string isDone = bookBL.UpdateBookBL(this.bookId, tbBName.Text, tbBAuthor.Text, tbBISBN.Text, double.Parse(tbBPrice.Text), int.Parse(tbBCopy.Text), this.bookImage, bookStatus);
                     if (isDone == "true")
                     {
                         MessageBox.Show("Book updated successfuly..");
@@ -96,12 +117,13 @@ namespace LibraryManagementSystem
             {
                 //lưu thông tin hình sách
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "Image files|*.bmp;*.jpg;*.png;";
+                dialog.Filter = "Image files|*.bmp;*.jpg;*.png;";// lọc file có đuôi là png, jpg, bmp mới hiển thị ở dialog cho phép lưu hình ảnh
                 dialog.FilterIndex = 1;
                 if (dialog.ShowDialog() == true)
                 {
-                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));
+                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));//hiển thị hình ảnh xem trước
 
+                    // lưu hình vào thư mực hình ảnh của sourcecode
                     string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;////D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\bin\Debug\net6.0-windows\ thư mục mặc định                                                                 
                     string path = Path.Combine(defaultFolder + PATH_IMAGE_SAVE);//kiểm tra thư mục hình ảnh
                     if (!Directory.Exists(path))

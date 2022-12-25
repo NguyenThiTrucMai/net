@@ -30,9 +30,14 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="7,222,0,0" TextWrapping="Wrap" Text="200" x:Name="tbBPrice" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Label Content="Book Copies" HorizontalAlignment="Left" Margin="7,247,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="7,278,0,0" TextWrapping="Wrap" Text="100" x:Name="tbBCopy" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Height="26" Margin="7,321,0,0" x:Name="BtnSubmit" Click="BtnSubmit_Click" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Height="26" Margin="95,324,0,0" x:Name="BtnSubmit" Click="BtnSubmit_Click" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
         <Image Height="100" Width="100" Grid.Column="3" Margin="107,142,167,141"/>
         <Image Grid.Column="3" x:Name="imagePicture" HorizontalAlignment="Left" Height="233" Margin="226,54,0,0" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
-        <Button Grid.Column="3" Content="Upload Image" HorizontalAlignment="Left" Margin="276,321,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Grid.Column="3" Content="Upload Image" HorizontalAlignment="Left" Margin="226,324,0,0" VerticalAlignment="Top" Click="Button_View_Click"/>
+        <Button Grid.Column="3" Content="Save Image" HorizontalAlignment="Left" Margin="350,324,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Name="cboStatus" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem IsSelected="True" Content="Còn sách" Name="Actice"></ComboBoxItem>
+            <ComboBoxItem  Content="Hết sách" Name="Deactice"></ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

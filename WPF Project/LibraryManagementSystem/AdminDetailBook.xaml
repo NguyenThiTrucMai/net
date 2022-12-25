@@ -11,7 +11,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Images/yoab-anderson-IHC5LPAoGrs-unsplash (2).jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    <Grid Height="369" VerticalAlignment="Top">
+    <Grid Height="369" VerticalAlignment="Top" IsEnabled="False">
         <Rectangle HorizontalAlignment="Left" Height="337" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="570" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
 
         <Label Content="Book Name" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Width="120"/>
@@ -25,5 +25,9 @@
         <Label Content="Book Copies" HorizontalAlignment="Left" Margin="31,247,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="" Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
         <Image x:Name="imagePicture" HorizontalAlignment="Left" Height="233" Margin="355,54,0,0" VerticalAlignment="Top" Width="176"/>
+        <ComboBox Name="cboStatus" SelectedValuePath="Name"  HorizontalAlignment="Left" Margin="31,323,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Còn sách" Name="Actice"></ComboBoxItem>
+            <ComboBoxItem  Content="Hết sách" Name="Deactice"></ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

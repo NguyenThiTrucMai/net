@@ -37,6 +37,16 @@ namespace LibraryManagementSystem
             tbBISBN.Text = AdminBooks.updateBook.BookISBN;
             tbBPrice.Text = AdminBooks.updateBook.BookPrice.ToString();
             tbBCopy.Text = AdminBooks.updateBook.BookCopies.ToString();
+
+            //xử lý dữ liệu cho trường status
+            if (AdminBooks.updateBook.BookStatus == 1)
+            {
+                cboStatus.SelectedValue = "Actice";
+            } else
+            {
+                cboStatus.SelectedValue = "Deactice";
+            }
+
             //gán giá trị lấy từ database lên để sử dụng lúc cập nhật hình ảnh
             this.bookImage = AdminBooks.updateBook.BookImage.ToString();
             try
