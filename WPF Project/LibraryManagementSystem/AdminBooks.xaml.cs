@@ -63,6 +63,22 @@ namespace LibraryManagementSystem
             }
             
         }
+        
+        //OPEN Detail BOOK WINDOW =>PL
+        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            Book book = dgBooks.SelectedItem as Book;
+            if (book != null)
+            {
+                updateBook = book;
+                AdminDetailBook adminDetailBook = new AdminDetailBook();
+                adminDetailBook.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a book to detail...");
+            }
+        }
 
         //OPEN UPDATE BOOK WINDOW =>PL
         private void BtnEdit_Click(object sender, RoutedEventArgs e)

@@ -19,6 +19,13 @@
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
+                                <Button x:Name="BtnDetail" Content=" Detail " Click="BtnDetail_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
                                 <Button x:Name="BtnEdit" Content=" Edit " Click="BtnEdit_Click"></Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
