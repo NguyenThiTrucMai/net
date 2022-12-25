@@ -225,5 +225,8 @@
   <ItemGroup>
     <Resource Include="Images\yoab-anderson-IHC5LPAoGrs-unsplash %282%29.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abc.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

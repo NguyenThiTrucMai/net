@@ -23,16 +23,16 @@ CREATE TABLE tblBooks (
 )
 drop table tblBooks
 insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage) 
-values ('Wow Beutiful', 'Jim Jan','KS454WE', 200.00,9,'\\~\\images\\abc.png');
+values ('Wow Beutiful', 'Jim Jan','KS454WE', 200.00,9,'abc.png');
 
 insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage) 
-values ('Bun', 'Beena Ant','UFS45AS3', 160.00,8,'\\~\\images\\abc.png');
+values ('Bun', 'Beena Ant','UFS45AS3', 160.00,8,'abc.png');
 
 insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage) 
-values ('Fault in Stars', 'Me Only','LDS45ED2', 200.00,8,'\\~\\images\\abc.png');
+values ('Fault in Stars', 'Me Only','LDS45ED2', 200.00,8,'abc.png');
 
 insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage) 
-values ('Are you sure', 'Nancy','KSD14523', 20.00,3,'\\~\\images\\abc.png');
+values ('Are you sure', 'Nancy','KSD14523', 20.00,3,'abc.png');
 
 select * from tblBooks;
 delete from tblBooks;
